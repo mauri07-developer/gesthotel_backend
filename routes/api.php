@@ -26,6 +26,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Ruta Pisos
 Route::get('/floors', [FloorController::class, 'index']);
+// Route::get('/floors', function () {
+//     return response()->json(['message' => 'Floors endpoint']);
+// });
 
 Route::get('/floor/{id}',function(){
     return "Obtener un piso";
