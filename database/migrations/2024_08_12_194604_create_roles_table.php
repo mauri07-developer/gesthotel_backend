@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('floors', function (Blueprint $table) {
-            $table->bigIncrements('id_floor');
-            $table->unsignedInteger('id_company');
+        Schema::create('roles', function (Blueprint $table) {
+            $table->increments('id_rol');
             $table->string('name');
-            $table->integer('level');
-            $table->text('description')->nullable();
-            // $table->integer('room_count');
-            $table->integer('max_room');
+            $table->string('comment');
             $table->integer('state')->default(1);
             $table->timestamps();
-            // $table-> foreign('id_company')->references('id_company')->on('companies');
         });
     }
 
@@ -30,7 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-
-        Schema::dropIfExists('floors');
+        Schema::dropIfExists('roles');
     }
 };
