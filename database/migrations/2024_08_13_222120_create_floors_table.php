@@ -21,7 +21,8 @@ return new class extends Migration
             $table->integer('max_room');
             $table->integer('state')->default(1);
             $table->timestamps();
-            // $table-> foreign('id_company')->references('id_company')->on('companies');
+            /** Llave foránea correspondiente a la tabla Company **/
+            $table-> foreign('id_company')->references('id_company')->on('companies');
         });
     }
 
