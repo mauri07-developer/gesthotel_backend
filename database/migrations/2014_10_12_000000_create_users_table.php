@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id_user');
-            $table->unsignedInteger('id_rol');
-            $table->unsignedInteger('id_company');
             $table->string('document');
             $table->string('name');
             $table->string('last_name');
@@ -26,10 +24,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
-
-            /**  Llaves foráneas **/
-            $table-> foreign('id_rol')->references('id_rol')->on('roles');
-            $table-> foreign('id_company')->references('id_company')->on('companies');
 
         });
     }
