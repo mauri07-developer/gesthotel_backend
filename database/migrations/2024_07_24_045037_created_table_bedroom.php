@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         //created table bedroom - TABLA MAESTTRO - faltan columnas
-        Schema::create('Rooms', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->comment('Habitaciones');
             $table->id('id_room');
             $table->string('name')->comment('Numero de la habitacion');
@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('price',10,2)->comment('Precio general');
             $table->integer('state')->comment('1->activo 0->inactivo')->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
     public function down(): void
     {
         //revertir la creacion de tabla
-        Schema::drop('Bedrooms');
+        Schema::drop('rooms');
     }
 };

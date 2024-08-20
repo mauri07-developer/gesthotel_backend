@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('descripcion');
             $table->integer('state')->comment('1->activo 0->inactivo')->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
