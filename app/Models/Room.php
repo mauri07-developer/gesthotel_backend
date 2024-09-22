@@ -9,6 +9,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Room extends Model
 {
     use HasFactory,SoftDeletes;
+    
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_room';
 
     protected $fillable = [
         "id_floor",
@@ -25,4 +32,11 @@ class Room extends Model
     protected $dates = ['deleted_at'];
 
     //relation with other models
+    public function floor(){
+        return $this->belongsTo(Floor::class);
+    }
+
+    public function type(){
+        return $this->belongsTo(TypeRoom::class);
+    }
 }
