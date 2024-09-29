@@ -10,6 +10,8 @@ class Box extends Model
 {
     use HasFactory,SoftDeletes;
 
+    protected $primaryKey = 'id_box';
+
     protected $fillable = [
         "id_company",
         "name",
@@ -19,4 +21,8 @@ class Box extends Model
 
     //No show registers deleted
     protected $dates = ['deleted_at'];
+
+    public function company (){
+        return $this->belongsTo(Company::class);
+    }
 }
