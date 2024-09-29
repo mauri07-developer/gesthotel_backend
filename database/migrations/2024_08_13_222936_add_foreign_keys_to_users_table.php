@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             /** Creación de columnas **/
-            $table->unsignedInteger('id_rol')->after('id_user');
-            $table->unsignedInteger('id_company')->after('id_user');
+            $table->unsignedInteger('company_id')->after('user_id');
+            $table->unsignedInteger('rol_id')->after('user_id');
 
             /**  Llaves foráneas **/
-            $table-> foreign('id_rol')->references('id_rol')->on('roles');
-            $table-> foreign('id_company')->references('id_company')->on('companies');
+            $table-> foreign('rol_id')->references('rol_id')->on('roles');
+            $table-> foreign('company_id')->references('company_id')->on('companies');
         });
     }
 

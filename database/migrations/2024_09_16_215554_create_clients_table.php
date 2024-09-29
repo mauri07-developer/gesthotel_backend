@@ -12,22 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->bigIncrements('id_client');
-            $table->unsignedBigInteger('id_juridical_people');
-            $table->unsignedBigInteger('id_natural_people');
+            $table->bigIncrements('client_id');
+            $table->unsignedBigInteger('juridical_people_id');
+            $table->unsignedBigInteger('natural_people_id');
             $table->string('email');
             $table->string('phone');
             $table->integer('state')->default(1);
             $table->timestamps();
             $table->softDeletes();
-            
+
             /** Llave foránea correspondiente a la tabla JURIDICAL PERSON **/
 
-            $table-> foreign('id_juridical_people')->references('id_juridical_people')->on('juridical_people');
+            $table-> foreign('juridical_people_id')->references('juridical_people_id')->on('juridical_people');
 
             /** Llave foránea correspondiente a la tabla NATURAL PERSON **/
 
-            $table-> foreign('id_natural_people')->references('id_natural_people')->on('natural_people');
+            $table-> foreign('natural_people_id')->references('natural_people_id')->on('natural_people');
 
         });
     }
