@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::table('boxes', function (Blueprint $table) {
             //add column id_company
-            $table->unsignedInteger('id_company')->after('id_box');
-            $table->foreign('id_company')->references('id_company')->on('companies');
+            $table->unsignedInteger('company_id')->after('box_id');
+            $table->foreign('company_id')->references('company_id')->on('companies');
         });
 
         Schema::table('services', function (Blueprint $table) {
-            //add column id_company
-            $table->unsignedBigInteger('id_user_inserted')->after('id_service');
-            $table->foreign('id_user_inserted')->references('id_user')->on('users');
+            //add column company_id
+            $table->unsignedBigInteger('user_inserted_id')->after('service_id');
+            $table->foreign('user_inserted_id')->references('user_id')->on('users');
         });
     }
 

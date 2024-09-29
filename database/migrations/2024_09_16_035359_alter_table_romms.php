@@ -13,14 +13,14 @@ return new class extends Migration
     {
         //add foreing
         Schema::table('rooms', function (Blueprint $table){
-            $table->unsignedBigInteger('id_floor')->after('id_room');
-            $table->foreign('id_floor')->references('id_floor')->on('floors');
-            $table->unsignedInteger('id_type_room')->after('id_floor');
-            $table->foreign('id_type_room')->references('id_type_room')->on('type_rooms');
+            $table->unsignedBigInteger('floor_id')->after('room_id');
+            $table->foreign('floor_id')->references('floor_id')->on('floors');
+            $table->unsignedInteger('type_room_id')->after('floor_id');
+            $table->foreign('type_room_id')->references('type_room_id')->on('type_rooms');
             $table->unsignedBigInteger('user_inserted')->after('price');
-            $table->foreign('user_inserted')->references('id_user')->on('users');
+            $table->foreign('user_inserted')->references('user_id')->on('users');
             $table->unsignedBigInteger('user_edit')->after('user_inserted');
-            $table->foreign('user_edit')->references('id_user')->on('users');
+            $table->foreign('user_edit')->references('user_id')->on('users');
         });
     }
 

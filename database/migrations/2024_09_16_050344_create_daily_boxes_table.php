@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('daily_boxes', function (Blueprint $table) {
-            $table->increments('id_daily_box');
-            $table->unsignedBigInteger('id_box');
-            $table->foreign('id_box')->references('id_box')->on('boxes');
-            $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id_user')->on('users');
+            $table->increments('daily_box_id');
+            $table->unsignedBigInteger('box_id');
+            $table->foreign('box_id')->references('box_id')->on('boxes');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users');
             $table->timestamp('date_initial');
             $table->timestamp('date_final')->nullable();
             $table->decimal('initial',10,2)->comment('Monto con que se apertura caja');
