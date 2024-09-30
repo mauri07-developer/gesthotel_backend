@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('companies', function (Blueprint $table) {
-            $table->increments('company_id');
-            $table->string('name');
+        Schema::create('juridical_people', function (Blueprint $table) {
+            $table->bigIncrements('juridical_people_id');
+            $table->string('ruc');
+            $table->string('social_razon');
             $table->string('address');
-            $table->string('phone');
-            $table->string('logo')->nullable();
             $table->integer('state')->default(1);
             $table->timestamps();
             $table->softDeletes();
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('juridical_people');
     }
 };

@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('floors', function (Blueprint $table) {
-            $table->bigIncrements('id_floor');
-            $table->unsignedInteger('id_company');
+            $table->bigIncrements('floor_id');
+            $table->unsignedInteger('company_id');
             $table->string('name');
             $table->integer('level');
             $table->text('description')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             /** Llave foránea correspondiente a la tabla Company **/
-            $table-> foreign('id_company')->references('id_company')->on('companies');
+            $table-> foreign('company_id')->references('company_id')->on('companies');
         });
     }
 
