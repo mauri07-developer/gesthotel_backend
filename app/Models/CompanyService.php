@@ -13,8 +13,8 @@ class CompanyService extends Model
     use HasFactory,SoftDeletes;
 
     protected $fillable = [
-        'id_company',
-        'id_service',
+        'company_id',
+        'service_id',
         'comment',
         'price',
         'state'

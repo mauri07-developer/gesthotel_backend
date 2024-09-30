@@ -13,7 +13,7 @@ class Box extends Model
     protected $primaryKey = 'id_box';
 
     protected $fillable = [
-        "id_company",
+        "company_id",
         "name",
         "comment",
         "state",

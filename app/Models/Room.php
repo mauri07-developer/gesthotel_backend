@@ -18,8 +18,8 @@ class Room extends Model
     protected $primaryKey = 'id_room';
 
     protected $fillable = [
-        "id_floor",
-        "id_type_room",
+        "floor_id",
+        "type_room_id",
         "name",
         "availability",
         "price",

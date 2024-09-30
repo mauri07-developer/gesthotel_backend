@@ -11,7 +11,7 @@ class DailyBox extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'id_box',
+        'box_id',
         'date_initial',
     ];
 
