@@ -6,22 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Service extends Model
+class DailyBox extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        "id_user_inserted",
-        "name",
-        "description",
-        "state",
+        'id_box',
+        'date_initial',
     ];
 
-    //No show registers deleted
     protected $dates = ['deleted_at'];
 
-    public function user (){
-        return $this->belongsTo(User::class);
+    public function box(){
+        return $this->belongsTo(Box::class);
     }
-
 }

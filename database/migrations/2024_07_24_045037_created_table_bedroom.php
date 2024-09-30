@@ -14,7 +14,7 @@ return new class extends Migration
         //created table bedroom - TABLA MAESTTRO - faltan columnas
         Schema::create('rooms', function (Blueprint $table) {
             $table->comment('Habitaciones');
-            $table->id('id_room');
+            $table->id('room_id');
             $table->string('name')->comment('Numero de la habitacion');
             $table->integer('availability')->comment('1->libre 2->ocupada 3->limpieza');
             $table->decimal('price',10,2)->comment('Precio general');

@@ -14,9 +14,6 @@ class RoomController extends Controller
     }
 
     protected function store(Request $request){
-        $bedroom = Room::created([
-            "name" => $request->name,
-            "status" => 1,
-        ]);
+        $bedroom = Room::create($request->all());
     }
 }
