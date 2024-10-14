@@ -10,7 +10,7 @@ class Box extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $primaryKey = 'id_box';
+    protected $primaryKey = 'box_id';
 
     protected $fillable = [
         "company_id",

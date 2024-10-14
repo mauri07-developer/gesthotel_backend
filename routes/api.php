@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoomController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\FloorController;
@@ -24,8 +25,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+Route::group(['prefix' => 'rooms'], function () {
+    Route::get('/', [RoomController::class, 'index']);       // Obtener todas las habitaciones
+    Route::post('/store', [RoomController::class, 'store']);      // Crear una nueva habitación
+    Route::get('/{id}', [RoomController::class, 'show']);    // Obtener una habitación específica
+    Route::put('/update/{id}', [RoomController::class, 'update']);  // Actualizar una habitación
+    Route::put('/delete/{id}', [RoomController::class, 'delete']); // Desactivar una habitación
+});
+
 // Ruta Pisos
-// Route::get('/floors', [FloorController::class, 'index']);
+// Route::get('/floors', c);
 // Route::get('/floors', function () {
 //     return response()->json(['message' => 'Floors endpoint']);
 // });
