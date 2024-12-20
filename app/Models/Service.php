@@ -10,10 +10,12 @@ class Service extends Model
 {
     use HasFactory,SoftDeletes;
 
+    protected $primaryKey = 'service_id';
+
     protected $fillable = [
         "user_inserted_id",
         "name",
-        "description",
+        "descripcion",
         "state",
     ];
 
@@ -21,7 +23,7 @@ class Service extends Model
     protected $dates = ['deleted_at'];
 
     public function user (){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_inserted_id');
     }
 
 }

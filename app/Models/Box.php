@@ -23,6 +23,6 @@ class Box extends Model
     protected $dates = ['deleted_at'];
 
     public function company (){
-        return $this->belongsTo(Company::class);
+        return $this->belongsTo(Company::class,'company_id');
     }
 }

@@ -12,12 +12,29 @@ class DailyBox extends Model
 
     protected $fillable = [
         'box_id',
+        'user_id',
         'date_initial',
+        'date_final',
+        'initial',
+        'final',
+        'income',
+        'expense',
+        'deposit',
+        'retirement',
+        'card',
+        'transfer',
+        'details',
+        'state'
     ];
 
     protected $dates = ['deleted_at'];
 
-    public function box(){
+    public function box()
+    {
         return $this->belongsTo(Box::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

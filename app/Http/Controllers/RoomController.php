@@ -37,7 +37,7 @@ class RoomController extends Controller
         try{
             \DB::beginTransaction();
             //primero buscamos el id
-            $room = Room::find($id);
+            $room = Room::findOrFail($id);
             //sobreescribo las propiedades
             $room->floor_id = $request->floor_id;
             $room->name = $request->name;
@@ -55,12 +55,15 @@ class RoomController extends Controller
 
     }
 
-    protected function delete ($id){
-        \DB::beginTransaction();
-        $room = Room::findOrFail($id);
-        $room->update(['state' => 0]);
-        \DB::commit();
-        return response()->json(['data' => $room, 'state' => 1], 200);
-
+    protected function delete($id){
+        try {
+            \DB::transaction(function () use ($id) {
+                $room = Room::findOrFail($id);
+                $room->update(['state' => 0]);
+            });
+            return response()->json([ 'state' => 1], 200);
+        } catch (Exception $e) {
+            return response()->json(['message' => $e->getMessage(), 'state' => 0], 500);
+        }
     }
 }
